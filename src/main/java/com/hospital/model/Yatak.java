@@ -18,8 +18,7 @@ public class Yatak {
     private String tcNo;
     private String hastaAdSoyad;
 
-    public Yatak() {
-    }
+
 
     public Yatak(int id, String blokNo, int katNo, String odaNumarasi, String yatakNumarasi,
                  String odaTuru, int yatakSayisi, String bakimTuru, YatakDurumu durum) {
