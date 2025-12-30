@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="15" style="-fx-background-color: #f4f7f6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hospital.controller.AnaPanelController">
+    <padding>
+        <Insets bottom="20" left="20" right="20" top="20" />
+    </padding>
+
+    <Label style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Hastane Yatak Yönetim Sistemi" />
+
+    <HBox alignment="CENTER" spacing="15">
+        <Button onAction="#hastalariGoster" style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 10 20;" text="Hasta Kayıtları" />
+        <Button onAction="#rezervasyonGoster" style="-fx-background-color: #34495e; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-padding: 10 20;" text="Yeni Rezervasyon" />
+    </HBox>
+
+    <Separator />
+
+    <VBox spacing="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+        <Label style="-fx-font-weight: bold; -fx-text-fill: #7f8c8d;" text="Yeni Oda ve Yatak Ekleme" />
+        <HBox alignment="CENTER" spacing="10">
+            <Label style="-fx-font-weight: bold;" text="Bina Adı:" />
+            <TextField fx:id="txtBlokNo" prefWidth="60" promptText="Örn: A" />
+
+            <Label style="-fx-font-weight: bold;" text="Kat No:" />
+            <TextField fx:id="txtKatNo" prefWidth="50" promptText="1" />
+
+            <Label style="-fx-font-weight: bold;" text="Oda No:" />
+            <TextField fx:id="txtOdaNo" prefWidth="70" promptText="101" />
+
+            <Label style="-fx-font-weight: bold;" text="Oda Türü:" />
+            <ComboBox fx:id="comboOdaTuru" prefWidth="130" promptText="Seçiniz" />
+
+            <TextField fx:id="txtOzelYatakSayisi" prefWidth="60" promptText="Adet" visible="false" />
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="10">
+            <Label style="-fx-font-weight: bold;" text="Bakım Türü:" />
+            <ComboBox fx:id="comboBakimTuru" prefWidth="160" promptText="Seçiniz" />
+
+            <Button onAction="#yatakEkle" style="-fx-background-color: #E8DAEF; -fx-text-fill: #5B2C6F; -fx-font-weight: bold; -fx-cursor: hand;" text="Odayı ve Yatakları Oluştur" />
+        </HBox>
+    </VBox>
+
+    <HBox alignment="CENTER" spacing="12" style="-fx-background-color: #ffffff; -fx-padding: 12; -fx-background-radius: 8; -fx-border-color: #dcdde1; -fx-border-radius: 8;">
+        <Label style="-fx-font-weight: bold; -fx-text-fill: #2f3640;" text="Seçili Yatak İşlemleri:" />
+
+        <Button onAction="#yatakBosalt"
+                style="-fx-background-color: #EBF5FB; -fx-text-fill: #2874A6; -fx-font-weight: bold; -fx-cursor: hand; -fx-min-width: 100; -fx-border-color: #AED6F1; -fx-border-radius: 3;"
+                text="Boşalt" />
+
+        <Button onAction="#yatakRezerveEt"
+                style="-fx-background-color: #FADBD8; -fx-text-fill: #943126; -fx-font-weight: bold; -fx-cursor: hand; -fx-min-width: 100; -fx-border-color: #F5B7B1; -fx-border-radius: 3;"
+                text="Rezerve Et" />
+
+        <Button onAction="#yatakBakimaAl"
+                style="-fx-background-color: #FEF9E7; -fx-text-fill: #9A7D0A; -fx-font-weight: bold; -fx-cursor: hand; -fx-min-width: 100; -fx-border-color: #F9E79F; -fx-border-radius: 3;"
+                text="Bakıma Al" />
+
+        <Separator orientation="VERTICAL" prefHeight="25" />
+
+        <Button onAction="#yatakSil"
+                style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand; -fx-min-width: 80;"
+                text="Sil" />
+    </HBox>
+
+    <TableView fx:id="yatakTablosu" VBox.vgrow="ALWAYS" style="-fx-background-radius: 5;">
+        <columns>
+            <TableColumn fx:id="sutunBlok" prefWidth="90" text="Bina Adı" />
+            <TableColumn fx:id="sutunKat" prefWidth="70" text="Kat No" />
+            <TableColumn fx:id="sutunOda" prefWidth="80" text="Oda No" />
+            <TableColumn fx:id="sutunOdaTuru" prefWidth="120" text="Oda Türü" />
+            <TableColumn fx:id="sutunYatak" prefWidth="80" text="Yatak No" />
+            <TableColumn fx:id="sutunBakim" prefWidth="140" text="Bakım Türü" />
+            <TableColumn fx:id="sutunDurum" prefWidth="100" text="Durum" />
+            <TableColumn fx:id="sutunHastaAd" prefWidth="160" text="Hasta Ad Soyad" />
+            <TableColumn fx:id="sutunHastaTC" prefWidth="130" text="Hasta TC" />
+            <TableColumn fx:id="sutunGirisTarihi" prefWidth="110" text="Giriş Tarihi" />
+            <TableColumn fx:id="sutunCikisTarihi" prefWidth="110" text="Çıkış Tarihi" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+</VBox>

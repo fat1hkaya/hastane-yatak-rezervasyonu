@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" alignment="TOP_CENTER" style="-fx-background-color: #f4f7f6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.hospital.controller.RezervasyonController">
+    <padding><Insets top="30" right="30" bottom="30" left="30"/></padding>
+
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Button text="← Geri" onAction="#geriDon" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;"/>
+        <Label text="Akıllı Rezervasyon Paneli" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+    </HBox>
+
+    <Separator/>
+
+    <HBox spacing="20" alignment="CENTER">
+        <VBox spacing="10" prefWidth="400" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+            <Label text="Hasta Kimlik Doğrulama" style="-fx-font-weight: bold; -fx-text-fill: #34495e;"/>
+            <HBox spacing="10">
+                <TextField fx:id="txtHastaTC" promptText="TC Kimlik No Giriniz" HBox.hgrow="ALWAYS" style="-fx-pref-height: 35;"/>
+                <Button text="Sorgula" onAction="#hastaSorgula" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            </HBox>
+
+            <VBox fx:id="vboxHastaBilgi" spacing="8" style="-fx-padding: 10; -fx-background-color: #f8f9fa; -fx-background-radius: 5;" visible="false">
+                <Label fx:id="lblHastaAd" text="Ad Soyad: -" style="-fx-font-weight: bold;"/>
+                <Label fx:id="lblHastaBakim" text="Gereken Bakım: -" style="-fx-text-fill: #e67e22; -fx-font-weight: bold;"/>
+            </VBox>
+        </VBox>
+
+        <VBox spacing="10" prefWidth="500" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+            <Label text="Yatak ve Oda Filtreleme" style="-fx-font-weight: bold; -fx-text-fill: #34495e;"/>
+
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <Label text="Oda Tipi:"/>
+                <ComboBox fx:id="comboOdaFiltre" promptText="Tümü" onAction="#filtreUygula"/>
+                <Separator orientation="VERTICAL" prefHeight="20"/>
+                <Label text="Bakım:" fx:id="lblFiltreBakim" style="-fx-font-weight: bold; -fx-text-fill: #7f8c8d;"/>
+            </HBox>
+
+            <ComboBox fx:id="comboYatak" prefWidth="460" promptText="Müsait yatakları listele..." style="-fx-pref-height: 35;"/>
+
+            <Label fx:id="lblUyari" text="Lütfen hasta bilgisi giriniz." style="-fx-text-fill: #e74c3c; -fx-font-size: 11px;" wrapText="true"/>
+        </VBox>
+    </HBox>
+
+    <VBox spacing="15" alignment="CENTER" maxWidth="400" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+        <HBox spacing="15">
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Giriş Tarihi:" style="-fx-font-weight: bold;"/>
+                <DatePicker fx:id="dpGiris" prefWidth="180"/>
+            </VBox>
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label text="Çıkış Tarihi:" style="-fx-font-weight: bold;"/>
+                <DatePicker fx:id="dpCikis" prefWidth="180"/>
+            </VBox>
+        </HBox>
+
+        <Button text="Rezervasyonu Onayla" onAction="#rezervasyonuKaydet" prefWidth="360" prefHeight="45"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 16px; -fx-cursor: hand;"/>
+    </VBox>
+</VBox>

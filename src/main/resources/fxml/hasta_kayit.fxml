@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox spacing="20" style="-fx-background-color: #f4f7f6;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.hospital.controller.HastaKayitController">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="← Geri Dön" onAction="#geriDon" style="-fx-background-color: #7f8c8d; -fx-text-fill: white; -fx-cursor: hand;"/>
+        <Label text="Hasta Kayıt Yönetimi" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <Separator/>
+
+    <GridPane hgap="10" vgap="10" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;">
+        <Label text="Ad:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <TextField fx:id="txtAd" promptText="Hasta Adı" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Soyad:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="txtSoyad" promptText="Hasta Soyadı" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="TC Kimlik No:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="txtTcNo" promptText="11 Haneli TC" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="Doğum Tarihi:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <DatePicker fx:id="dpDogumTarihi" promptText="Seçiniz" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <Label text="Bakım Gereksinimi:" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+        <ComboBox fx:id="comboBakim" promptText="Bakım Gereksinimi" prefWidth="150" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+
+        <Button text="Hastayı Kaydet" onAction="#hastaKaydet" prefWidth="150"
+                style="-fx-background-color: #2ecc71; -fx-text-fill: white; -fx-cursor: hand;" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+    </GridPane>
+
+    <VBox spacing="10" VBox.vgrow="ALWAYS">
+        <Label text="Kayıtlı Hasta Listesi" style="-fx-font-weight: bold;"/>
+        <TableView fx:id="hastaTablosu" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="sutunAd" text="Ad" prefWidth="100" />
+                <TableColumn fx:id="sutunSoyad" text="Soyad" prefWidth="100" />
+                <TableColumn fx:id="sutunTc" text="TC Kimlik No" prefWidth="120" />
+                <TableColumn fx:id="sutunDogumTarihi" text="Doğum Tarihi" prefWidth="120" />
+                <TableColumn fx:id="sutunDurum" text="Bakım Gereksinimi" prefWidth="150" />
+            </columns>
+        </TableView>
+    </VBox>
+</VBox>
