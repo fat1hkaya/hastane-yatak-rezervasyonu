@@ -50,7 +50,7 @@ public class VeritabaniHazirlayici {
 
             kolonlariKontrolEtVeEkle(ifade);
 
-            System.out.println("Database verified.");
+            System.out.println("Veritabanı Oluşturuldu.");
 
         } catch (Exception e) {
             e.printStackTrace();
