@@ -27,11 +27,11 @@ public class SahneYoneticisi {
             } else if(fxmlYolu.contains("hasta_kayit.fxml")){
                 sahne.setMaximized(false);
                 sahne.setWidth(650);
-                sahne.setHeight(900);
+                sahne.setHeight(800);
             }else {
                 sahne.setMaximized(false);
-                sahne.setWidth(900);
-                sahne.setHeight(600);
+                sahne.setWidth(650);
+                sahne.setHeight(700);
             }
             return loader;
         } catch (Exception e) {

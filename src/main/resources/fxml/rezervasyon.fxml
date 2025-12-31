@@ -14,7 +14,7 @@
 
     <Separator/>
 
-    <HBox spacing="20" alignment="CENTER">
+
         <VBox spacing="10" prefWidth="400" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
             <Label text="Hasta Kimlik Doğrulama" style="-fx-font-weight: bold; -fx-text-fill: #34495e;"/>
             <HBox spacing="10">
@@ -42,7 +42,7 @@
 
             <Label fx:id="lblUyari" text="Lütfen hasta bilgisi giriniz." style="-fx-text-fill: #e74c3c; -fx-font-size: 11px;" wrapText="true"/>
         </VBox>
-    </HBox>
+
 
     <VBox spacing="15" alignment="CENTER" maxWidth="400" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
         <HBox spacing="15">
